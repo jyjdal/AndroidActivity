@@ -6,8 +6,8 @@
     <string name="label_password">密码：</string>
     <string name="go_back">返回</string>
     <string name="knows">知道了</string>
-    <string name="search_baidu">点我访问百度</string>
-    <string name="label_time">当前时间</string>
+    <string name="search_baidu">点我访问网页</string>
+    <string name="label_time">当前时间：</string>
     <string name="to_fill_username">用户名：%1$s</string>
     <string name="to_fill_password">密码：%1$s</string>
 </resources>
