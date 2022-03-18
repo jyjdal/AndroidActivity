@@ -1,6 +1,6 @@
 /**
  * Author: 孙强 20194780 <1604070358@qq.com>
- * Github Repo: github.com/jyjdal/AndroidDev-04-01
+ * Github Repo: github.com/jyjdal/AndroidActivity
  * Description: 登录页面，用于接收参数传递给主页面，以及接收并展示从主页面返回的信息
  * Date: 2022-03-17
  *  Info: 添加页面布局，实现除跳转以外的输入处理
