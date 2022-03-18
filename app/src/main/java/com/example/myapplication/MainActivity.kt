@@ -9,18 +9,21 @@
 
 package com.example.myapplication
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import com.example.myapplication.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var handler: Handler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,15 +41,13 @@ class MainActivity : AppCompatActivity() {
         val password = intent.getStringExtra(userKeys.second)
         binding.passwordDisplay.text = String.format(getString(R.string.to_fill_password), password)
 
-        // 创建线程，用于刷新时间
-        thread(start = true) {
-            // 获取时间
-            val time = getCurrentTime()
-            // 找到控件并刷新内容
-            binding.timeDisplay.text = time
-            // sleep1秒钟
-            Thread.sleep(1000)
-        }
+        handler = Handler(Looper.getMainLooper())
+        handler.post(object : Runnable {
+            override fun run() {
+                binding.timeDisplay.text = getCurrentTime()
+                handler.postDelayed(this, 1000)
+            }
+        })
 
         // 访问网页的按钮被按下
         binding.searchButton.setOnClickListener {
@@ -57,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         // 返回按钮被按下
         binding.goBack.setOnClickListener {
-            val insiderName = binding.insiderName.text
+            val insiderName = binding.inputName.text.toString()
 
             //  校验参数非空
             if (insiderName.isEmpty()) {
@@ -69,9 +70,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             // 准备数据，返回登录页面
-            val intent = Intent("android.intent.action.MAIN")
-            intent.putExtra(PropertiesConfig.getInsiderKey(), insiderName)
-            setResult(RESULT_OK, intent)
+            setResult(
+                Activity.RESULT_OK,
+                Intent().apply { putExtra(PropertiesConfig.getInsiderKey(), insiderName) })
             finish()
         }
     }

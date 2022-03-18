@@ -22,7 +22,7 @@
             android:exported="false">
             <intent-filter>
                 <action android:name="com.example.myapplication.MAIN_PAGE" />
-                <category android:name="com.example.myapplicataion.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

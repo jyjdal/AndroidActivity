@@ -10,15 +10,12 @@
         android:id="@+id/labelTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
         android:text="@string/label_time"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/searchButton"
-        app:layout_constraintEnd_toStartOf="@+id/timeDisplay"
-        app:layout_constraintHorizontal_bias="0.549"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/searchButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.98" />
+        app:layout_constraintVertical_bias="0.17" />
 
     <TextView
         android:id="@+id/timeDisplay"
@@ -26,9 +23,8 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textSize="20sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/labelTime"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/labelTime"
+        app:layout_constraintTop_toBottomOf="@+id/labelTime" />
 
     <Button
         android:id="@+id/searchButton"
@@ -36,10 +32,9 @@
         android:layout_height="wrap_content"
         android:text="@string/search_baidu"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/inputName"
-        app:layout_constraintStart_toStartOf="@+id/labelTime"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
+        app:layout_constraintBottom_toTopOf="@+id/usernameDisplay"
+        app:layout_constraintStart_toStartOf="@+id/usernameDisplay"
+        app:layout_constraintTop_toBottomOf="@+id/timeDisplay" />
 
     <TextView
         android:id="@+id/usernameDisplay"
@@ -47,20 +42,23 @@
         android:layout_height="wrap_content"
         android:text="@string/to_fill_username"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/passwordDisplay"
-        app:layout_constraintStart_toStartOf="@+id/searchButton"
-        app:layout_constraintTop_toBottomOf="@+id/searchButton"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/passwordDisplay"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.461" />
 
     <TextView
         android:id="@+id/passwordDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
         android:text="@string/to_fill_password"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/inputName"
-        app:layout_constraintStart_toStartOf="@+id/usernameDisplay" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputName"
+        app:layout_constraintTop_toBottomOf="@+id/usernameDisplay" />
 
     <EditText
         android:id="@+id/inputName"
@@ -73,31 +71,31 @@
         android:text=""
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/insiderName"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.314"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.759" />
+        app:layout_constraintVertical_bias="0.705" />
 
     <TextView
         android:id="@+id/insiderName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
         android:text="@string/knows"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/inputName"
-        app:layout_constraintEnd_toStartOf="@+id/goBack"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/inputName" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/goBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="152dp"
         android:text="@string/go_back"
         android:textSize="20sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/insiderName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/insiderName" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
