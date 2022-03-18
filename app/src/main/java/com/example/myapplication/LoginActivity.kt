@@ -8,6 +8,7 @@
 
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -19,19 +20,19 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // 获取binding，设置页面
         binding = ActivityLoginBinding.inflate(layoutInflater)
-
-        // 设置页面
         val view = binding.root
         setContentView(view)
 
+        // 初始化配置文件读写类，因为这是进入的第一个页面，因此在这里进行初始化
+        PropertiesConfig.init(this.assets)
+
         // 当登录按钮被按下
         binding.login.setOnClickListener {
-            // 获取用户输入内容
+            // 获取用户输入内容，进行判空校验
             val username = binding.inputUsername.text.toString()
             val password = binding.inputPassword.text.toString()
-
-            // 进行判空校验
             if (username.isEmpty() or  username.isEmpty()) {
                 Toast.makeText(this, "Cannot input empty values!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
