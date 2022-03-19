@@ -3,6 +3,8 @@
  * Github Repo: github.com/jyjdal/AndroidActivity
  * Description: 主页面，用于接收并展示登录页面传递的内容、访问一个URL、
  *      以及接收接收信息返回给主页面
+ * Date: 2022-03-18
+ *  Info: 完成页面跳转和返回数据的功能，调整界面布局
  * Date: 2022-03-17
  *  Info: 添加页面布局，实现除跳转以外的输入处理
  */
@@ -41,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         val password = intent.getStringExtra(userKeys.second)
         binding.passwordDisplay.text = String.format(getString(R.string.to_fill_password), password)
 
+        // 设置定时任务，每隔1秒刷新一次当前时间
         handler = Handler(Looper.getMainLooper())
         handler.post(object : Runnable {
             override fun run() {
@@ -58,9 +61,8 @@ class MainActivity : AppCompatActivity() {
 
         // 返回按钮被按下
         binding.goBack.setOnClickListener {
+            // 获取用户输入，校验数据非空（一定要在后面加上toString()）
             val insiderName = binding.inputName.text.toString()
-
-            //  校验参数非空
             if (insiderName.isEmpty()) {
                 Toast.makeText(
                     this,
@@ -77,6 +79,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // 获取当前时间
     private fun getCurrentTime(): String {
         val format = SimpleDateFormat.getDateTimeInstance()
         return format.format(Calendar.getInstance().time)
