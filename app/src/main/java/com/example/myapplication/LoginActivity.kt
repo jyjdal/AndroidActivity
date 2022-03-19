@@ -11,6 +11,7 @@
 package com.example.myapplication
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -46,11 +47,12 @@ class LoginActivity : AppCompatActivity() {
                 val data = it.data!!
 
                 // TODO 这里需要改成Dialog
-                Toast.makeText(
-                    this,
-                    data.getStringExtra(PropertiesConfig.getInsiderKey()),
-                    Toast.LENGTH_SHORT
-                ).show()
+//                Toast.makeText(
+//                    this,
+//                    data.getStringExtra(PropertiesConfig.getInsiderKey()),
+//                    Toast.LENGTH_SHORT
+//                ).show()
+                showInsiderWithDialog(data.getStringExtra(PropertiesConfig.getInsiderKey())!!)
             }
 
         // 当登录按钮被按下
@@ -58,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
             // 获取用户输入内容，进行判空校验
             val username = binding.inputUsername.text.toString()
             val password = binding.inputPassword.text.toString()
-            if (username.isEmpty() or username.isEmpty()) {
+            if (username.isEmpty() or password.isEmpty()) {
                 Toast.makeText(this, "Cannot input empty values!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -94,5 +96,19 @@ class LoginActivity : AppCompatActivity() {
     override fun onDestroy() {
         Log.i("App Exit", "Shutting down.")
         super.onDestroy()
+    }
+
+    // 使用Dialog将数回传的数据展示出来
+    private fun showInsiderWithDialog(insiderName: String) {
+        val dialog = AlertDialog.Builder(this)
+        dialog.apply {
+            setTitle("Data returned")
+            setMessage("Data sent back from 'MainActivity' is '$insiderName'.")
+            setPositiveButton("确认") {_, _ ->
+                run {
+                    Log.d("App Callback", "Callback data displayed by dialog.")
+                }
+            }
+        }.create().show()
     }
 }
