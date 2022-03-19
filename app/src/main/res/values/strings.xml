@@ -10,4 +10,7 @@
     <string name="label_time">当前时间：</string>
     <string name="to_fill_username">用户名：%1$s</string>
     <string name="to_fill_password">密码：%1$s</string>
+    <string name="alert_dialog_title">Data returned</string>
+    <string name="alert_dialog_content">Data sent back from \'MainActivity\' is \'%1$s\'.</string>
+    <string name="alert_button_text">确认</string>
 </resources>

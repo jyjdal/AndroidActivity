@@ -95,9 +95,9 @@ class LoginActivity : AppCompatActivity() {
     private fun showInsiderWithDialog(insiderName: String) {
         val dialog = AlertDialog.Builder(this)
         dialog.apply {
-            setTitle("Data returned")
-            setMessage("Data sent back from 'MainActivity' is '$insiderName'.")
-            setPositiveButton("确认") {_, _ ->
+            setTitle(R.string.alert_dialog_title)
+            setMessage(String.format(getString(R.string.alert_dialog_content), insiderName))
+            setPositiveButton(R.string.alert_button_text) {_, _ ->
                 run {
                     Log.d("App Callback", "Callback data displayed by dialog.")
                 }
