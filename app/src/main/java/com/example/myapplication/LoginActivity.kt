@@ -45,13 +45,6 @@ class LoginActivity : AppCompatActivity() {
                     exitProcess(-1)
                 }
                 val data = it.data!!
-
-                // TODO 这里需要改成Dialog
-//                Toast.makeText(
-//                    this,
-//                    data.getStringExtra(PropertiesConfig.getInsiderKey()),
-//                    Toast.LENGTH_SHORT
-//                ).show()
                 showInsiderWithDialog(data.getStringExtra(PropertiesConfig.getInsiderKey())!!)
             }
 
