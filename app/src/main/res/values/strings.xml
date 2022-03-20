@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Activity</string>
     <string name="login">登录</string>
     <string name="exit">退出</string>
     <string name="label_username">用户名：</string>
@@ -13,4 +13,6 @@
     <string name="alert_dialog_title">Data returned</string>
     <string name="alert_dialog_content">Data sent back from \'MainActivity\' is \'%1$s\'.</string>
     <string name="alert_button_text">确认</string>
+    <string name="title_login">Login Activity</string>
+    <string name="title_main">Main Activity</string>
 </resources>
