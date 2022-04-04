@@ -8,7 +8,10 @@
 package com.example.myapplication
 
 import android.app.Activity
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,6 +25,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var handler: Handler
+    private lateinit var timeChangeReceiver: BroadcastReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,11 +77,26 @@ class MainActivity : AppCompatActivity() {
                 Intent().apply { putExtra(PropertiesConfig.getInsiderKey(), insiderName) })
             finish()
         }
+
+        // 注册广播处理类
+        val intentFilter = IntentFilter()
+        intentFilter.addAction("android.intent.action.TIME_TICK")
+        timeChangeReceiver = TimeChangeReceiver()
+        registerReceiver(timeChangeReceiver, intentFilter)
     }
 
     // 获取当前时间
     private fun getCurrentTime(): String {
         val format = SimpleDateFormat.getDateTimeInstance()
         return format.format(Calendar.getInstance().time)
+    }
+
+    // 定义广播处理类
+    private inner class TimeChangeReceiver : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            if (intent?.action != "TIME_TICK") {
+                Toast.makeText(context, "Time changed!", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
