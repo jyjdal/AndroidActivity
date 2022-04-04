@@ -2,8 +2,6 @@
  * Author: 孙强 20194780 <1604070358@qq.com>
  * Github Repo: github.com/jyjdal/AndroidActivity
  * Description: 配置信息类，用于封装读取配置文件的操作
- * Date: 2022-03-18
- *  Info: 添加配置信息读取类，实现对配置信息操作的封装
  */
 
 package com.example.myapplication

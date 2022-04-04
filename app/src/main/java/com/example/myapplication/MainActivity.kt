@@ -3,10 +3,6 @@
  * Github Repo: github.com/jyjdal/AndroidActivity
  * Description: 主页面，用于接收并展示登录页面传递的内容、访问一个URL、
  *      以及接收接收信息返回给主页面
- * Date: 2022-03-18
- *  Info: 完成页面跳转和返回数据的功能，调整界面布局
- * Date: 2022-03-17
- *  Info: 添加页面布局，实现除跳转以外的输入处理
  */
 
 package com.example.myapplication
